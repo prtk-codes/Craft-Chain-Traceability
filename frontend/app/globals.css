@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #16F98A;
+  --secondary: #0BD97D;
+  --dark: #4C763B;
+  --deep-dark: #043915;
+  --accent: #134338;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-satoshi), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0a3d3d 0%, #134338 30%, #1a5e4f 60%, #16F98A 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(22, 249, 138, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(22, 249, 138, 0.15);
+  border-radius: 16px;
+}
+
+/* Button styles */
+.btn-primary {
+  background: var(--primary);
+  color: var(--dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(22, 249, 138, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: rgba(22, 249, 139, 0.14);
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid rgba(22, 249, 138, 0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: rgba(22, 249, 138, 0.2);
+}
+
+/* Input styles */
+input, textarea, select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(22, 249, 138, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-family: inherit;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(22, 249, 138, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid rgba(22, 249, 138, 0.3);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Toast notifications */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.3s ease-out;
+  z-index: 1000;
+}
+
+.toast-success {
+  background: rgba(22, 249, 138, 0.2);
+  border: 1px solid var(--primary);
+}
+
+.toast-error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
